@@ -6,7 +6,7 @@ defaults:
         working-directory: launchpad
 
 jobs:
-  rugaljobtest:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -19,7 +19,7 @@ jobs:
           SHIPIT_TOKEN: ${{ secrets.SHIPIT_TOKEN }}
 
   deploy:
-    needs: rugaljobtest
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
